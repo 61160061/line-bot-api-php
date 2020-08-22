@@ -22,7 +22,10 @@ if ( sizeof($request_array['events']) > 0 )
    {
 		$text = $event['message']['text'];
 		if($text == "ชื่อ" || $text == "ชื่ออะไร" || $text == "ชื่ออะไรงับ"){
-			$reply_message = 'แง้ว';
+			$reply_message = 'ชื่อ นายธนเกียรติ หอมหวล รหัสนิสิต 61160061';
+		}
+	  	if($text == "เอฟ"){
+			$reply_message = 'เอฟกินเยอะ';
 		}
 	   	if($text == "สถานการณ์โควิดวันนี้" || $text == "covid19" || $text == "covid-19" || $text == "Covid-19"){
 		     $url = 'https://covid19.th-stat.com/api/open/today';
@@ -39,9 +42,10 @@ if ( sizeof($request_array['events']) > 0 )
 
 		     $reply_message = $result;
 		     $reply_message = 'ติดเชื้อสะสม '. $obj->{'Confirmed'} .' คน \r\n'. $obj->{'Recovered'} .' คน';
- 		 }
+ 		 }else {		
+			$reply_message = 'เราไม่เข้าใจคำถามของคุณ ('.$text.') ';   
+			}
 	   
-		//$reply_message = '('.$text.') ได้รับข้อความเรียบร้อย!!';   
    }
    else
     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
