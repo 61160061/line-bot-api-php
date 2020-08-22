@@ -41,7 +41,7 @@ if ( sizeof($request_array['events']) > 0 )
 		     $obj = json_decode($result);
 
 		     $reply_message = $result;
-		     $reply_message = 'ติดเชื้อสะสม '. $obj->{'Confirmed'} .' คน \n'. $obj->{'Recovered'} .' คน';
+		     $reply_message = "ติดเชื้อสะสม ". $obj->{'Confirmed'} ." คน \n". $obj->{'Recovered'} ." คน";
  		 }else 		
 			$reply_message = 'เราไม่เข้าใจคำถามของคุณ ('.$text.') ';   
 			
