@@ -21,8 +21,10 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
 		$text = $event['message']['text'];
-		
-		$reply_message = '('.$text.') ได้รับข้อความเรียบร้อย!!';   
+		if($text = "ชื่อ" || $text == "ชื่ออะไร" || $text == "ชื่ออะไรงับ"){
+			$reply_message = 'แง้ว';
+		}
+		//$reply_message = '('.$text.') ได้รับข้อความเรียบร้อย!!';   
    }
    else
     $reply_message = 'ระบบได้รับ '.ucfirst($event['message']['type']).' ของคุณแล้ว';
