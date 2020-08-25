@@ -21,6 +21,41 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
 		$text = $event['message']['text'];
+	   	$str_msg = explode(" ",$text);
+	   	if($str_msg[0] == "@บอท"){ <?php
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => "https://thaiqa.p.rapidapi.com/predict",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 30,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "[    {      \"paragraphs\": [        {          \"qas\": [            {              \"id\": \"1\",              \"question\": \"ราคาทอง"              }          ],          \"context\": \"ราคาทองวันนี้"        }      ]    }]",
+			CURLOPT_HTTPHEADER => array(
+				"accept: application/json",
+				"content-type: application/json",
+				"x-rapidapi-host: thaiqa.p.rapidapi.com",
+				"x-rapidapi-key: b6d6da9e6cmsh25aa4a1d7f13dafp11743fjsn87b01fa6001c"
+			),
+		));
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		if ($err) {
+			echo "cURL Error #:" . $err;
+		} else {
+			echo $response;
+			$reply_message = $response;
+		}
+		}else	   
 	   	if($text == "CDMA"){
 			$reply_message = '1, -3, -1, -1';
 		}else
