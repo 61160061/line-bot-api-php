@@ -22,7 +22,7 @@ if ( sizeof($request_array['events']) > 0 )
    {
 		$text = $event['message']['text'];
 	   	$str_msg = explode(" ",$text);
-	   	if($str_msg[0] == "@บอท"){ <?php
+	   	if($str_msg[0] == "@บอท"){ 
 
 		$curl = curl_init();
 
