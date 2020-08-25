@@ -21,7 +21,10 @@ if ( sizeof($request_array['events']) > 0 )
    if( $event['message']['type'] == 'text' )
    {
 		$text = $event['message']['text'];
-		if($text == "ชื่อ" || $text == "ชื่ออะไร" || $text == "ชื่ออะไรงับ"){
+	   	if($text == "CDMA"){
+			$reply_message = '1, -3, -1, -1';
+		}else
+		if($text == "ชื่อ" || $text == "ชื่ออะไร" || $text == "ชื่ออะไรงับ" || $text == "ชื่อผู้พัฒนา" ){
 			$reply_message = 'ชื่อ นายธนเกียรติ หอมหวล รหัสนิสิต 61160061';
 		}else 
 	  	if($text == "เอฟ"){
