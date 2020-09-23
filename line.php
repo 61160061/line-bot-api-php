@@ -84,6 +84,9 @@ if ( sizeof($request_array['events']) > 0 )
 		 if($text == "มังกรรักใครที่สุด"){
 			$reply_message = 'รักเอฟฮับ';
 		 }else
+		 if($text == "โอ้ต" || $text=="อั้น"){
+			$reply_message = 'หน้าหี';
+		 }else
 			$reply_message = 'เราไม่เข้าใจคำถามของคุณ ('.$text.') ';   
 			
 	   
