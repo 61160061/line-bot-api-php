@@ -80,7 +80,10 @@ if ( sizeof($request_array['events']) > 0 )
 
 		     $reply_message = $result;
 		     $reply_message = "ติดเชื้อสะสม ". $obj->{'Confirmed'} ." คน \nรักษาหายแล้ว ". $obj->{'Recovered'} ." คน";
- 		 }else 		
+ 		 }else
+		 if($text == "มังกรรักใครที่สุด"){
+			$reply_message = 'รักเอฟฮับ';
+		 }else
 			$reply_message = 'เราไม่เข้าใจคำถามของคุณ ('.$text.') ';   
 			
 	   
